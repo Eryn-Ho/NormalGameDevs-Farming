@@ -20,11 +20,11 @@ public class garden_plot_state : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1") && (watered_state = false))
+        if (Input.GetKeyDown("1") && (watered_state == false))
         {
             watering();
         }
-        if (Input.GetKeyDown("2") && (tilled_state = false))
+        if (Input.GetKeyDown("2") && (tilled_state == false))
         {
             tilling();
         }
