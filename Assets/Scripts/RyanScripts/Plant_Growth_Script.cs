@@ -4,36 +4,70 @@ using UnityEngine;
 
 public class Plant_Growth_Script : MonoBehaviour
 {
-    [SerializeField] private MeshFilter PlantBase;
-    [SerializeField] private Mesh[] PlantStage;
 
-    private int nextStage;
+    [SerializeField] private GameObject[] PlantStage;
+
+    private int nextStage = 0;
+
+    private bool seedPlanted = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlantBase.mesh = PlantStage[0];
+        while (nextStage < PlantStage.Length)
+        {
+            PlantStage[nextStage].SetActive(false);
+            nextStage++;
+        }
         nextStage = 1;
+
     }
    
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("a"))
+        if (Input.GetKeyDown("a"))
+        {
+            PlantSeed();
+        }
+        if (Input.GetKeyDown("s"))
         {
             PlantGrowth();
         }
     }
+
+    public void PlantSeed()
+    {
+        if (seedPlanted == false)
+        {
+            PlantStage[0].SetActive(true);
+            seedPlanted = true;
+            Debug.Log("Seed planted");
+        }
+    }
+
     public void PlantGrowth()
     {
         // Set new plant stage and queue next plant stage
-        PlantBase.mesh = PlantStage[nextStage];
-        nextStage++;
-        // Loop plant stage ( skips final stage aka death state )
-        if (nextStage >= PlantStage.Length - 1)
+        if (seedPlanted == true)
         {
-            nextStage = 0;
+            PlantStage[nextStage].SetActive(true);
+            if (nextStage == 0)
+            {
+                PlantStage[PlantStage.Length - 2].SetActive(false);
+            }
+            else
+            {
+                PlantStage[nextStage - 1].SetActive(false);
+            }
+            nextStage++;
+            if (nextStage >= PlantStage.Length - 1)
+            {
+                nextStage = 0;
+            }
+            Debug.Log("plant stage" + nextStage);
         }
-        Debug.Log("plant stage" + nextStage);
+
+
     }
 }

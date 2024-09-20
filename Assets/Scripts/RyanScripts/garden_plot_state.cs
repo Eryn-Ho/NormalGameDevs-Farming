@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class garden_plot_state : MonoBehaviour
 {
-    private bool watered_state = false;
-    private bool tilled_state = false;
+    private bool watered = false;
+    private bool tilled = false;
 
     [SerializeField] private MeshFilter PlotBase;
     [SerializeField] private Material PlotWet;
@@ -20,11 +20,11 @@ public class garden_plot_state : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("1") && (watered_state == false))
+        if (Input.GetKeyDown("1") && (watered == false))
         {
             watering();
         }
-        if (Input.GetKeyDown("2") && (tilled_state == false))
+        if (Input.GetKeyDown("2") && (tilled == false))
         {
             tilling();
         }
@@ -32,14 +32,14 @@ public class garden_plot_state : MonoBehaviour
 
     public void watering()
     {
-        watered_state = true;
+        watered = true;
 
         Debug.Log("Watered!");
     }
 
     public void tilling()
     {
-        tilled_state = true;
+        tilled = true;
         PlotBase.mesh = PlotTilled;
         Debug.Log("Tilled!");
     }
