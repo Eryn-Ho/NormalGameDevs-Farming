@@ -4,30 +4,36 @@ using UnityEngine;
 
 public class Plant_Growth_Script : MonoBehaviour
 {
-    public MeshFilter PlantBase;
-    public Mesh[] PlantStage;
+    [SerializeField] private MeshFilter PlantBase;
+    [SerializeField] private Mesh[] PlantStage;
 
-    public int currentStage;
+    private int nextStage;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start debuggy");
         PlantBase.mesh = PlantStage[0];
+        nextStage = 1;
     }
    
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown("a"))
         {
-            PlantBase.mesh = PlantStage[currentStage];
-            currentStage++;
-            if(currentStage >= PlantStage.Length)
-            {
-                currentStage = 0;
-            }
-            Debug.Log("Test key pressed!");
+            PlantGrowth();
         }
+    }
+    public void PlantGrowth()
+    {
+        // Set new plant stage and queue next plant stage
+        PlantBase.mesh = PlantStage[nextStage];
+        nextStage++;
+        // Loop plant stage ( skips final stage aka death state )
+        if (nextStage >= PlantStage.Length - 1)
+        {
+            nextStage = 0;
+        }
+        Debug.Log("plant stage" + nextStage);
     }
 }
