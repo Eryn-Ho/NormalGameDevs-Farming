@@ -172,6 +172,7 @@ public class CustomCharacterMovement3D : MonoBehaviour
         Vector3 input = MoveInput;
         Vector3 right = Vector3.Cross(transform.up, input);
         Vector3 forward = Vector3.Cross(right, GroundNormal);
+        //Vector3 forward = LookDirection;
 
         // calculate move velocity
         Vector3 targetVelocity = forward * speed * MoveSpeedMultiplier;
