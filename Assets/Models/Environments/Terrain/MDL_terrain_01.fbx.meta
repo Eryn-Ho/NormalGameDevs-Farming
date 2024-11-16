@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_dirt_01
-    second: {fileID: 2100000, guid: 2a52db92a94688c4ca9dc6da0d46915f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_dirt_02
-    second: {fileID: 2100000, guid: bd8e2e037a4c8af48975385ab030e43a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: M_grass_01
-    second: {fileID: 2100000, guid: 9641a9ec767cd3649a946b66d186319c, type: 2}
+    second: {fileID: 2100000, guid: 370bf385b389cbc4fa552baa3427b7c4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
