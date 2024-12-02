@@ -12,7 +12,7 @@ public class Tool : MonoBehaviour
 
     [SerializeField] public Animator Animator { get; protected set; }
     [SerializeField] public string AnimationTrigger { get; protected set; }
-    [SerializeField] public float AttackSpeed { get; protected set; } = 1f;
+    [SerializeField] public float ActionSpeed { get; protected set; } = 1f;
 
     private float _lastActionTime;
     protected Vector3 _aimPosition;
@@ -24,7 +24,7 @@ public class Tool : MonoBehaviour
         if (Animator == null) Animator = GetComponentInParent<Animator>();
     }
 
-    public bool TryAttack(Vector3 aimPosition, int team, GameObject instigator)
+    public bool TryUse(Vector3 aimPosition, int team, GameObject instigator)
     {
         if (Time.time < _lastActionTime + Cooldown) return false;
         _lastActionTime = Time.time;
@@ -33,13 +33,13 @@ public class Tool : MonoBehaviour
         _team = team;
         _instigator = instigator;
 
-        Animator.SetFloat("AttackSpeed", AttackSpeed);
+        Animator.SetFloat("ActionSpeed", ActionSpeed);
 
-        Attack(aimPosition, team, instigator);
+        Use(aimPosition, team, instigator);
         return true;
     }
 
-    protected virtual void Attack(Vector3 aimPosition, int team, GameObject instigator)
+    protected virtual void Use(Vector3 aimPosition, int team, GameObject instigator)
     {
         // play animation if trigger exists
         if (!string.IsNullOrEmpty(AnimationTrigger)) Animator.SetTrigger(AnimationTrigger);
@@ -47,7 +47,7 @@ public class Tool : MonoBehaviour
     }
 
     // optional override function based on animations
-    public virtual void AttackAnimEvent(int attackIndex)
+    public virtual void ActionAnimEvent(int attackIndex)
     {
 
     }
