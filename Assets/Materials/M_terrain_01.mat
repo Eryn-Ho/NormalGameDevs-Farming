@@ -291,7 +291,7 @@ Material:
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColourOverlay: {r: 1, g: 0.9371947, b: 0.9103774, a: 0}
-    - _ColourOverlay2: {r: 0.7688679, g: 0.9105295, b: 1, a: 0}
+    - _ColourOverlay2: {r: 0.7390531, g: 0.8407118, b: 0.9056604, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -299,7 +299,7 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _LightenColour: {r: 0.6509434, g: 0.5974422, b: 0.5803222, a: 0}
+    - _LightenColour: {r: 0.7075472, g: 0.6663891, b: 0.5840602, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
