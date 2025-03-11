@@ -50,6 +50,8 @@ public class CustomCharacterMovement3D : MonoBehaviour
     [SerializeField] private NavMeshAgent _navMeshAgent;
     [SerializeField] private CapsuleCollider _capsuleCollider;
 
+    private Vector3 _look;
+
     private void OnValidate()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -91,6 +93,7 @@ public class CustomCharacterMovement3D : MonoBehaviour
 
     public void SetMoveInput(Vector3 input)
     {
+        _look = input;
         input = Vector3.ClampMagnitude(input, 1f);
         if (input.magnitude > 0.1f)
         {
@@ -111,7 +114,8 @@ public class CustomCharacterMovement3D : MonoBehaviour
 
     public void SetLookDirection(Vector3 direction)
     {
-        LookDirection = new Vector3(direction.x, 0f, direction.z).normalized;
+        //LookDirection = new Vector3(direction.x, 0f, direction.z).normalized;
+        LookDirection = _look;
     }
 
     public void Jump()
